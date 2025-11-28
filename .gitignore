@@ -33,3 +33,10 @@ wheels/
 # OS
 .DS_Store
 Thumbs.db
+
+# UCL Room Checker - Data Cache
+ucl_rooms.json
+
+# Debug files
+debug_*.json
+debug_*.html
