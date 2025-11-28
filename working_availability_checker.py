@@ -86,13 +86,14 @@ class WorkingAvailabilityChecker:
             logger.debug(f"Error checking room {room_id}: {e}")
             return None
 
-    def is_available_at_time(self, slots: List[Dict], target_time: str) -> Tuple[bool, Optional[str]]:
+    def is_available_at_time(self, slots: List[Dict], target_time: str, target_date: str) -> Tuple[bool, Optional[str]]:
         """
-        Check if available at specific time
+        Check if available at specific time on specific date
 
         Args:
             slots: List of slot dicts from API
             target_time: Time in HH:MM format
+            target_date: Date in YYYY-MM-DD format
 
         Returns:
             (is_available, reason)
@@ -100,25 +101,26 @@ class WorkingAvailabilityChecker:
         if not slots:
             return (None, "No slot data")
 
-        # Find slot matching our time
+        # Find slot matching our EXACT date and time
         for slot in slots:
             start = slot.get('start', '')
 
-            # Check if this slot matches our target time
+            # Check if this slot matches our target DATE and TIME
             # Format: '2025-11-28 18:30:00'
-            if target_time in start or start.endswith(f" {target_time}:00"):
+            # We must match the exact date to avoid matching tomorrow's slots!
+            if start.startswith(f"{target_date} {target_time}"):
                 # Check availability status
                 className = slot.get('className', '')
 
-                if 's-lc-eq-avail' in className:
-                    return (True, "Available")
-                elif 's-lc-eq-checkout' in className or 'booked' in className.lower():
+                # Interpretation based on API testing:
+                # - 's-lc-eq-checkout' or 'booked' = BOOKED
+                # - 's-lc-eq-avail' = AVAILABLE
+                # - NO className = AVAILABLE (most common case)
+                if 's-lc-eq-checkout' in className or 'booked' in className.lower():
                     return (False, "Booked")
-                elif not className:
-                    # No className usually means available
-                    return (True, "Available (no conflicts)")
                 else:
-                    return (False, f"Status: {className}")
+                    # Available (either explicit className or no className)
+                    return (True, "Available")
 
         return (None, f"No slot found for {target_time}")
 
@@ -177,7 +179,7 @@ class WorkingAvailabilityChecker:
                 slots = data['slots']
 
                 if slots:
-                    is_avail, reason = self.is_available_at_time(slots, target_time)
+                    is_avail, reason = self.is_available_at_time(slots, target_time, date)
 
                     if is_avail == True:
                         print("✅ AVAILABLE")
