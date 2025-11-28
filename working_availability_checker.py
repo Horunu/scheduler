@@ -228,7 +228,20 @@ def main():
     # Get parameters
     num_people = int(sys.argv[1]) if len(sys.argv) > 1 else 2
     time_slot = sys.argv[2] if len(sys.argv) > 2 else "18:30"
-    date = "2025-11-28"
+
+    # Allow date parameter (format: YYYY-MM-DD or +N for N days from today)
+    if len(sys.argv) > 3:
+        date_arg = sys.argv[3]
+        if date_arg.startswith('+'):
+            # Relative date: +1 = tomorrow, +2 = day after, etc.
+            days_ahead = int(date_arg[1:])
+            date = (datetime.now() + timedelta(days=days_ahead)).strftime('%Y-%m-%d')
+        else:
+            # Absolute date
+            date = date_arg
+    else:
+        # Default to today
+        date = datetime.now().strftime('%Y-%m-%d')
 
     # Filter by capacity
     suitable = [r for r in rooms if r['capacity'] >= num_people]
@@ -258,6 +271,14 @@ def main():
 
     print("\n" + "=" * 90)
     print("✨ This uses UCL's real API - results are 100% accurate!")
+    print()
+    print("💡 Usage:")
+    print("   python3 working_availability_checker.py <people> <time> [date]")
+    print("   Examples:")
+    print("     python3 working_availability_checker.py 5 14:00        # Today at 2pm")
+    print("     python3 working_availability_checker.py 3 10:30 +1     # Tomorrow at 10:30")
+    print("     python3 working_availability_checker.py 8 16:00 +2     # Day after at 4pm")
+    print("     python3 working_availability_checker.py 4 09:00 2025-12-01  # Specific date")
     print()
 
 
