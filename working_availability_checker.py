@@ -253,7 +253,7 @@ def main():
 
     # Check REAL availability
     checker = WorkingAvailabilityChecker()
-    available, booked = checker.filter_available_rooms(suitable, date, time_slot, max_check=30)
+    available, booked = checker.filter_available_rooms(suitable, date, time_slot, max_check=45)
 
     # Display results
     print("\n" + "=" * 90)
