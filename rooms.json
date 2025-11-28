@@ -1,0 +1,66 @@
+[
+  {
+    "id": "R101",
+    "name": "Room 101 - Darwin Building",
+    "capacity": 4,
+    "building": "Darwin Building",
+    "floor": 1,
+    "facilities": ["Whiteboard", "HDMI"]
+  },
+  {
+    "id": "R102",
+    "name": "Room 102 - Darwin Building",
+    "capacity": 8,
+    "building": "Darwin Building",
+    "floor": 1,
+    "facilities": ["Whiteboard", "Projector", "Video Conference"]
+  },
+  {
+    "id": "R201",
+    "name": "Room 201 - Wilkins Building",
+    "capacity": 12,
+    "building": "Wilkins Building",
+    "floor": 2,
+    "facilities": ["Whiteboard", "Projector", "HDMI"]
+  },
+  {
+    "id": "R202",
+    "name": "Room 202 - Wilkins Building",
+    "capacity": 6,
+    "building": "Wilkins Building",
+    "floor": 2,
+    "facilities": ["Whiteboard"]
+  },
+  {
+    "id": "R301",
+    "name": "Room 301 - Roberts Building",
+    "capacity": 20,
+    "building": "Roberts Building",
+    "floor": 3,
+    "facilities": ["Whiteboard", "Projector", "Video Conference", "Smart Board"]
+  },
+  {
+    "id": "R302",
+    "name": "Room 302 - Roberts Building",
+    "capacity": 10,
+    "building": "Roberts Building",
+    "floor": 3,
+    "facilities": ["Whiteboard", "HDMI"]
+  },
+  {
+    "id": "R401",
+    "name": "Room 401 - Cruciform Building",
+    "capacity": 15,
+    "building": "Cruciform Building",
+    "floor": 4,
+    "facilities": ["Whiteboard", "Projector", "HDMI", "Video Conference"]
+  },
+  {
+    "id": "R402",
+    "name": "Room 402 - Cruciform Building",
+    "capacity": 3,
+    "building": "Cruciform Building",
+    "floor": 4,
+    "facilities": ["Whiteboard"]
+  }
+]

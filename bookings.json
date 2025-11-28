@@ -1,0 +1,58 @@
+[
+  {
+    "room_id": "R101",
+    "date": "2025-11-28",
+    "start_time": "09:00",
+    "end_time": "11:00",
+    "booked_by": "Engineering Society"
+  },
+  {
+    "room_id": "R101",
+    "date": "2025-11-28",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "booked_by": "Study Group A"
+  },
+  {
+    "room_id": "R102",
+    "date": "2025-11-28",
+    "start_time": "10:00",
+    "end_time": "12:00",
+    "booked_by": "Team Meeting"
+  },
+  {
+    "room_id": "R201",
+    "date": "2025-11-28",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "booked_by": "Workshop"
+  },
+  {
+    "room_id": "R202",
+    "date": "2025-11-28",
+    "start_time": "09:00",
+    "end_time": "10:30",
+    "booked_by": "Tutorial"
+  },
+  {
+    "room_id": "R301",
+    "date": "2025-11-28",
+    "start_time": "11:00",
+    "end_time": "13:00",
+    "booked_by": "Lecture"
+  },
+  {
+    "room_id": "R302",
+    "date": "2025-11-28",
+    "start_time": "15:00",
+    "end_time": "17:00",
+    "booked_by": "Seminar"
+  },
+  {
+    "room_id": "R401",
+    "date": "2025-11-28",
+    "start_time": "09:00",
+    "end_time": "12:00",
+    "booked_by": "Conference"
+  }
+]

@@ -1,0 +1,8 @@
+# Basic prototype requires no external dependencies
+# Python 3.6+ standard library is sufficient
+
+# Future dependencies for UCL integration:
+# requests>=2.31.0
+# beautifulsoup4>=4.12.0
+# selenium>=4.15.0
+# lxml>=4.9.0
