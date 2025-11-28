@@ -44,7 +44,7 @@ class WorkingAvailabilityChecker:
         room_id = room['id']
 
         # Visit room page first to establish session
-        room_url = f"{self.BASE_URL}/spaces?lid={room_id}"
+        room_url = f"{self.BASE_URL}/space/{room_id}"
         self.session.headers['Referer'] = room_url
 
         try:

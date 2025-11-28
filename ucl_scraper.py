@@ -186,7 +186,7 @@ class UCLScraper:
                                                 'group_name': group_name,
                                                 'capacity': capacity,
                                                 'capacity_id': capacity_id,
-                                                'booking_url': f"{self.BASE_URL}/spaces?lid={item['id']}"
+                                                'booking_url': f"{self.BASE_URL}/space/{item['id']}"
                                             }
                                             rooms.append(room)
 
@@ -231,7 +231,7 @@ class UCLScraper:
         This requires an additional request per room
         """
         try:
-            url = f"{self.BASE_URL}/spaces?lid={room_id}"
+            url = f"{self.BASE_URL}/space/{room_id}"
             response = self.session.get(url, timeout=15)
             response.raise_for_status()
 
